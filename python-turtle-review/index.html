@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Python Introduction for Graphics Programming</title>
+
+	<meta name="description" content="Presentation made with reveal.js">
+	<meta name="author" content="Mark Joseph J. Solidarios">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background="assets/bg0.jpg">
+				<h2>Graphics Programming</h2>
+				<p>with Python Turtle</p>
+				<p>
+					<small>Mark Joseph J. Solidarios</small>
+				</p>
+			</section>
+			<section data-background="assets/bg0.jpg">
+				<img style="height: 200px; width: auto;" src="assets/Python-logo-notext.svg" alt="">
+				<small class="fragment">
+					<p>A wise memer said...</p>
+					<blockquote class="fragment"
+						cite="https://www.facebook.com/IlonggoLines/photos/a.890238711052546/1778857958857279/?type=3&theater">
+						&ldquo;Ngaa perme lang gakadula ang bao?&rdquo;
+					</blockquote>
+					<blockquote class="fragment"
+						cite="https://www.facebook.com/IlonggoLines/photos/a.890238711052546/1778857958857279/?type=3&theater">
+						&ldquo;Kay indi siya daan ka turtle!&rdquo;
+					</blockquote>
+				</small>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<small>Previously on...</small>
+				<p>Dope-A-Meme with Python</p>
+				<small>
+					<ul>
+						<li class="fragment">
+							Python Data Structures
+						</li>
+						<li class="fragment">
+							Code Optimization using Functions
+						</li>
+						<li class="fragment">
+							Parameter Initialization
+						</li>
+						<li class="fragment">
+							Looping Repetitive Instructions
+						</li>
+						<li class="fragment">
+							Code Documentation using Comments
+						</li>
+					</ul>
+				</small>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<p>Python Modules with Turtle Graphics</p>
+				<small class="fragment">Using external Python statements and definitions.</small>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<p>example.py</p>
+				<pre><code>
+def add(a, b):
+	"""This program adds two
+	numbers and return the result"""
+	result = a + b
+	return result
+				</code></pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<p>main.py</p>
+				<pre><code>
+import example
+print example.add(1,2)
+				</code></pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<p>Demo</p>
+				<small>Optimize this code using modules</small>
+
+<pre><code>
+import turtle
+def drawSquare(t, sz):
+	for i in range(4):
+	t.forward(sz)
+	t.left(90)
+window = turtle.Screen()
+window.bgcolor("#333333")
+junjun = turtle.Turtle()
+junjun.color("yellow")
+for i in range(1,24):
+	drawSquare(junjun,100)
+	junjun.left(18)						
+</code></pre>
+
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<p>Exercise</p>
+				<small>Select and draw a Mandala pattern using Python. Use your custom Python modules for a cleaner code.</small>
+<img src="assets/pattern.png" />
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
