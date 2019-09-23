@@ -25,37 +25,78 @@
 		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
-		<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 	<div class="reveal">
 		<div class="slides">
 			<section class="left" data-background="assets/bg0.jpg">
-				<h2>Introduction to Computer Graphics</h2>	
-				<img src="assets/profile.jpg" class="profile" /><small class="profile-text">mjsolidarios@wvsu.edu.ph | https://github.com/mjsolidarios</small>
+				<h2>Introduction to Computer Graphics</h2>
+				<img src="assets/profile.jpg" class="profile" /><small class="profile-text">mjsolidarios@wvsu.edu.ph |
+					https://github.com/mjsolidarios</small>
 			</section>
 			<!-- Watch video about evolution of computer graphics -->
 			<section data-background="assets/bg0.jpg">
 				<h3>What is Computer Graphics?</h3>
 				<!-- Let the students write the definition in a sheet of paper -->
-				<p class="fragment">Computer graphics is the creation or manipulation of static and dynamic images on the computer.</p>
+				<p class="fragment">Computer graphics is the creation or manipulation of static and dynamic images on
+					the computer.</p>
 			</section>
-			<section  data-background="assets/bg0.jpg">
-				<p>System Diagram</p>
-				<img src="assets/diagram_1.svg" alt="">
+			<section>
+				<section data-background="assets/bg0.jpg">
+					<p>System Diagram</p>
+					<img style="height: 350px; width: auto" src="assets/diagram_1.svg" alt="">
+				</section>
+				<section class="left" data-background="assets/bg0.jpg">
+					<img src="assets/input.svg" alt="">					
+					<p>Input Devices</p>
+					<small>
+						<ul>
+							<li class="fragment">
+								Keyboard
+							</li>
+							<li class="fragment">
+								Mouse
+							</li>
+							<li class="fragment">
+								Joystick
+							</li>
+							<li class="fragment">
+								Digitizer
+							</li>
+							<li class="fragment">
+								Voice Recognition
+							</li>
+							<li class="fragment">
+								Image Scanner
+							</li>
+						</ul>
+					</small>
+				</section>
+				<section data-background="assets/bg0.jpg">
+					<p>Processors - CPU, APU and GPU</p>
+					<img src="assets/apu.png" alt="">
+				</section>
+				<section class="left" data-background="assets/bg0.jpg">
+					<img src="assets/output.svg" alt="">
+					<p>Output Devices</p>
+					<small>
+						<ul>
+							<li>CRT - <span class="fragment">Cathode Ray Tube</span></li>
+							<li>LCD - <span class="fragment">Liquid Crystal Display</span></li>
+							<li>OLED - <span class="fragment">Organic LED</span></li>
+						</ul>
+					</small>
+				</section>
 			</section>
-			<section  data-background="assets/bg0.jpg">
-				<p>CRT</p>
-				<img style="height: 350px; width: auto" src="assets/crt.jpg" alt="">
-				<p class="fragment"><small>Cathode Ray Tube</small></p>
-			</section>
-			<section  data-background="assets/bg0.jpg">
+			<section data-background="assets/bg0.jpg">
 				<h2>Raster vs Vector</h2>
 			</section>
 			<section class="left" data-background="assets/bg0.jpg">
 				<h3>Raster</h3>
-				<p class="fragment">Comes from a latin word 'rastrum' meaning rake. Electron draws the image every line forming a grid.</p>
+				<p class="fragment">Comes from a latin word 'rastrum' meaning rake. Electron draws the image every line
+					forming a grid.</p>
 			</section>
 			<section class="left" data-background="assets/bg0.jpg">
 				<h3>Vector</h3>
