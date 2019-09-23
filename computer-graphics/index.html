@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Computer Graphics</title>
+
+	<meta name="description" content="Presentation made with reveal.js">
+	<meta name="author" content="Mark Joseph J. Solidarios">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+		<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="left" data-background="assets/bg0.jpg">
+				<h2>Introduction to Computer Graphics</h2>	
+				<img src="assets/profile.jpg" class="profile" /><small class="profile-text">mjsolidarios@wvsu.edu.ph | https://github.com/mjsolidarios</small>
+			</section>
+			<!-- Watch video about evolution of computer graphics -->
+			<section data-background="assets/bg0.jpg">
+				<h3>What is Computer Graphics?</h3>
+				<!-- Let the students write the definition in a sheet of paper -->
+				<p class="fragment">Computer graphics is the creation or manipulation of static and dynamic images on the computer.</p>
+			</section>
+			<section  data-background="assets/bg0.jpg">
+				<p>System Diagram</p>
+				<img src="assets/diagram_1.svg" alt="">
+			</section>
+			<section  data-background="assets/bg0.jpg">
+				<p>CRT</p>
+				<img style="height: 350px; width: auto" src="assets/crt.jpg" alt="">
+				<p class="fragment"><small>Cathode Ray Tube</small></p>
+			</section>
+			<section  data-background="assets/bg0.jpg">
+				<h2>Raster vs Vector</h2>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Raster</h3>
+				<p class="fragment">Comes from a latin word 'rastrum' meaning rake. Electron draws the image every line forming a grid.</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Vector</h3>
+				<p class="fragment">Directly manipulates the electron beam - forming an image.</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Computer Graphics Driven</h3>
+				<ul>
+					<li class="fragment">Movie Industries</li>
+					<li class="fragment">Game Industries</li>
+					<li class="fragment">Medical Imaging and Scientific Visualizations</li>
+					<li class="fragment">Computer Aided Design</li>
+					<li class="fragment">User Interfaces</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
