@@ -20,3 +20,13 @@ img {
     vertical-align: middle;
     margin: 1rem
 }
+
+.icon-md{
+    height: 40px;
+    width: auto
+}
+
+.icon-lg{
+    height: 100px;
+    width: auto
+}
