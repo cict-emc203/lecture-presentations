@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Learning JavaScript</title>
+
+	<meta name="description" content="Presentation made with reveal.js">
+	<meta name="author" content="Mark Joseph J. Solidarios">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="left" data-background="assets/bg0.jpg">
+				<h2>Learning JavaScript</h2>
+				<p>for WebGL</p>
+				<img src="assets/profile.jpg" class="profile" /><small class="profile-text">mjsolidarios@wvsu.edu.ph |
+					https://github.com/mjsolidarios</small>
+			</section>
+			<section data-background="assets/bg0.jpg" class="left">
+				<img src="assets/nav.svg" alt="" class="icon-md" />
+				<p><small>
+						Use the navigation buttons or the arrow keys to proceed to the remaining slides.
+					</small></p>
+				<h2>F</h2>
+				<p>
+					<small>
+						You can also press
+						<span class="highlight">&gt;</span>
+						<span class="highlight">&gt;</span>F
+						<span class="highlight">&lt;</span>
+						<span class="highlight">&lt;</span> on your keyboard to show your presentation in fullscreen
+						mode.
+					</small>
+				</p>
+				<img src="assets/explore.svg" class="icon-md" alt="" />
+				<p>
+					<small>
+						This presentation is best explored with up-to-date web browsers.
+					</small>
+				</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>The tools</h3>
+				<p class="fragment">Before we start, we need to setup our tools first (VSCode & Firefox Developer
+					Edition).</p>
+				<img class="fragment" style="width: 300px; height:auto" src="assets/tools.png" alt="">
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>What is WebGL?</h3>
+				<p class="fragment">WebGL unleashes the power of graphics processors to developers on an open web
+					platform, and all major browsers support it.</p>
+				<p class="fragment">WebGL uses JavaScript as its programming language.</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>What is JavaScript?</h3>
+				<p class="fragment">JavaScript is a scripting or programming language that allows you to implement
+					complex things on web pages (MDN).</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<img class="brendan" src="assets/brendan.jpg" />
+				<p class="fragment">JavaScript was created by Brendan Eich in 1995 during his time at Netscape
+					Communications.</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Java-like Syntax</h3>
+				<div class="fragment">
+					<p>JavaScript has an undeniably familiar syntax with Java.</p>
+					<hr>
+				</div>
+				<small>
+					<div class="fragment">
+						<p class="fragment">Java <span class="fragment">- Compiled Programming Language</span></p>
+						<p class="fragment">JavaScript <span class="fragment">- Interpreted Programming Language</span>
+						</p>
+					</div>
+				</small>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Java Example</h3>
+				<pre>
+					<code>
+public class Sample {
+	public static void main(String[] args) {
+		System.out.println("Hello world!");
+		try {
+			final MissileSilo silo = new MissileSilo("silo.weapons.mil");
+			silo.launchMissile(args[0]);
+		} catch(Exception e) {
+			System.out.println("Unexpected exception: " + e);
+		}
+	}
+}						  
+					</code>
+				</pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Similar Code in JavaScript</h3>
+				<pre>
+					<code>
+console.log('Hello world');
+try {
+	const silo = new MissileSilo('silo.weapons.mil');
+	silo.launchMissile(process.argv[0]);
+} catch(e) {
+	console.log('Unexpected exception' + e);
+}					  
+					</code>
+				</pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>JavaScript Variables</h3>
+				<p>JavaScript variables are loosely typed.</p>
+				<pre>
+					<code>
+var foo = 1;
+var bar = "A String";
+var boolean_variable = true;
+var an_array = [1,2,3,4];
+					</code>
+				</pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Output</h3>
+				<p>Printing the output to the console.</p>
+				<pre>
+					<code>
+console.log("Hello World");
+					</code>
+				</pre>
+			</section>
+			<section>
+				<section class="left" data-background="assets/bg0.jpg">
+					<h3>JavaScript Loops</h3>
+					<p>JavaScript loops are very similar to other OOP languages. This is an example for loop.</p>
+					<pre>
+				<code>
+var cats = ["Bill", "Jeff", "Pete", "Biggles", "Jasmin"];
+for (let i = 0; i < cats.length; i++) {
+	if (i === cats.length - 1) {
+		info += 'and ' + cats[i] + '.';
+	} else {
+		info += cats[i] + ', ';
+	}
+}
+				</code>
+			</pre>
+				</section>
+				<section class="left" data-background="assets/bg0.jpg">
+					<h3>while loop</h3>
+					<pre>
+				<code>
+var cats = ["Bill", "Jeff", "Pete", "Biggles", "Jasmin"];
+let i = 0;
+
+while (i < cats.length) {
+	if (i === cats.length - 1) {
+		info += 'and ' + cats[i] + '.';
+	} else {
+		info += cats[i] + ', ';
+	}
+
+	i++;
+}
+				</code>
+			</pre>
+				</section>
+				<section class="left" data-background="assets/bg0.jpg">
+					<h3>do - while loop</h3>
+					<pre>
+				<code>
+var cats = ["Bill", "Jeff", "Pete", "Biggles", "Jasmin"];
+let i = 0;
+
+do {
+	if (i === cats.length - 1) {
+	info += 'and ' + cats[i] + '.';
+} else {
+	info += cats[i] + ', ';
+}
+
+i++;
+} while (i < cats.length);
+				</code>
+			</pre>
+				</section>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>JavaScript Functions</h3>
+				<p>Functions allow you to store a piece of code that does a single task inside a defined block, and then
+					call that code whenever you need it using a single short command.</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Example Function</h3>
+				<pre>
+					<code>
+function draw() {
+	ctx.clearRect(0,0,WIDTH,HEIGHT);
+	for (let i = 0; i < 100; i++) {
+		ctx.beginPath();
+		ctx.fillStyle = 'rgba(255,0,0,0.5)';
+		ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
+		ctx.fill();
+	}
+}
+
+draw();
+					</code>
+				</pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Anonymous Functions</h3>
+				<p>We also have another version on how to declare a function in JavaScript - functions with no name</p>
+				<pre>
+					<code>
+var myGreeting = function() {
+	alert('hello');
+}
+
+myGreeting();
+					</code>
+				</pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Hello WebGL</h3>
+				<p>Open up the hello.pdf and type the code.</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
