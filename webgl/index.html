@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>WebGL</title>
+
+	<meta name="description" content="Presentation made with reveal.js">
+	<meta name="author" content="Mark Joseph J. Solidarios">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="left" data-background="assets/bg0.jpg">
+				<h2>WebGL</h2>
+				<p>An Introduction</p>
+				<img src="assets/profile.jpg" class="profile" /><small class="profile-text">mjsolidarios@wvsu.edu.ph |
+					https://github.com/mjsolidarios</small>
+			</section>
+			<section data-background="assets/bg0.jpg" class="left">
+				<img src="assets/nav.svg" alt="" class="icon-md" />
+				<p><small>
+						Use the navigation buttons or the arrow keys to proceed to the remaining slides.
+					</small></p>
+				<h2>F</h2>
+				<p>
+					<small>
+						You can also press
+						<span class="highlight">&gt;</span>
+						<span class="highlight">&gt;</span>F
+						<span class="highlight">&lt;</span>
+						<span class="highlight">&lt;</span> on your keyboard to show your presentation in fullscreen
+						mode.
+					</small>
+				</p>
+				<img src="assets/explore.svg" class="icon-md" alt="" />
+				<p>
+					<small>
+						This presentation is best explored with up-to-date web browsers.
+					</small>
+				</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<section>
+					<img style="height: 150px; width: auto;" src="assets/webgl.svg" alt="" srcset="">
+					<h3>What is WebGL?</h3>
+					<p class="fragment">
+						WebGL (Web Graphics Library) is a JavaScript API for rendering interactive 3D computer graphics
+						and 2D graphics within any compatible web browser without the use of plug-ins.
+					</p>
+				</section>
+				<section>
+					<p>
+						WebGL is integrated completely into all the web standards of the browser allowing GPU
+						accelerated
+						usage of physics and image processing and effects as part of the web page canvas.
+					</p>
+				</section>
+			</section>
+			<section data-background="assets/bg0.jpg">
+				<img style="height: 130px; width: auto;" src="assets/flash.png" alt="">
+				<p class="fragment">Before WebGL, there was Flash...</p>
+			<small>
+					<p class="fragment">...until Steve Jobs ended support for Flash in Apple devices.</p>
+			</small>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>How does it Work?</h3>
+				<p class="fragment">WebGL is slightly more complicated than your typical web technologies because it’s designed to work directly with your graphics card. </p>
+			</section>
+			<section data-background="assets/bg0.jpg">
+				<p>How does WebGL work?</p>
+				<img src="assets/rendering-pipeline.jpg" style="height: 300px; width: auto;" alt="" srcset="">				<br>
+				<small><p class="fragment">From Joe Groff’s explanation of the graphics pipeline in OpenGL.</p></small>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Lots of code eh?</h3>
+				<p class="fragment">You don't need to fully understand the inner workings of WebGL. </p>
+			</section>
+		
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>WebGL Examples</h3>
+				<p class="fragment">Let's watch them again!</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Hello WebGL</h3>
+				<p class="fragment">Continue working on your Hello WebGL project.</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>

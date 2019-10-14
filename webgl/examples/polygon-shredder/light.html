@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<meta charset="utf-8">
+	<title>The Polygon Shredder</title>
+
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+	<meta property="og:url" content="https://www.clicktorelease.com/code/polygon-shredder">
+
+	<meta property="og:title" content="The Polygon Shredder"> 
+	<meta property="og:description" content="The polygon shredder that takes many cubes and turns them into confetti"> 
+	<meta property="og:image" content="https://www.clicktorelease.com/code/polygon-shredder/thumb.jpg"> 
+	<meta name="description" content="The polygon shredder that takes many cubes and turns them into confetti">
+	<meta itemprop="name" content="The Polygon Shredder">
+	<meta itemprop="description" content="The polygon shredder that takes many cubes and turns them into confetti">
+	<meta itemprop="image" content="https://www.clicktorelease.com/code/polygon-shredder/thumb.jpg">
+
+	<script src="light_files/cbgapi.loaded_1" async=""></script><script src="light_files/cbgapi.loaded_0" async=""></script><script id="twitter-wjs" src="light_files/widgets.js"></script><script id="facebook-jssdk" src="light_files/all.js"></script><script async="" src="light_files/analytics.js"></script><script src="light_files/EQZCnk4gCeNwUQsZ03sLJaa105M.js"></script><style>
+		* { margin: 0; padding: 0; -webkit-user-select: none; -moz-user-select: none}
+		body{ overflow: hidden; font-family: tahoma, sans-serif; font-size: 12px; background-color: #202020;}
+		#container{ position: absolute; left: 0; top: 0; right: 0; bottom: 0;}
+		#intro{ position: absolute; left: 0; top: 0; padding: 40px; pointer-events: none; transition: opacity 250ms ease-out; color: white;}
+		#intro h1, #intro h2, #intro ul, #closeBtn, #minIntro{ font-family: Raleway, sans-serif; color: white; text-shadow: 0 -1px 0 black;}
+		#intro h1{ font-size: 45.5px; text-transform: uppercase; font-weight: bold; line-height: 1em;}
+		#intro h2{ font-size: 11px; text-transform: uppercase; font-weight: normal; margin-bottom: 1em;}
+		#intro ul{ margin: 20px 20px 0 20px;}
+		#intro li{ font-weight: normal; font-size: 11px;}
+		#intro ul.controls{ margin: 10px 0 10px 40px; list-style-type: circle;}
+		#closeBtn{ font-size: 14px; border: 1px solid white; border-radius: 20px; display: inline; padding: 10px; pointer-events: auto; cursor: pointer; }
+		#closeBtn:hover{ color: red;}
+		.hidden{ opacity: 0 }
+		#sizes{ margin-bottom: 30px; margin-left: 10px;}
+		#intro a{ pointer-events: auto;}
+		#closeBtn .hidden{ pointer-events: none; }
+		#minIntro{ position: absolute; left: 10px; bottom: 10px; transition: opacity 250ms ease-out; }
+		#minIntro h1{ font-size: 24px; font-weight: bold; text-transform: uppercase;}
+		.hidden #closeBtn, .hidden a, #intro.hidden a{ pointer-events: none;}
+		#size-options span:not(:last-child):after{ content: ', '; }
+		a{ color: inherit;}
+		a:hover{ color: #dedede;}
+		#error{ position: absolute; left: 50%; top: 50%; text-align: center; transform: translate3d( -50%, -50%, 0 ); color: white; font-size: 14px; line-height: 1.4em; border: 1px solid white; padding:40px; border-radius: 20px; transition: opacity 250ms ease-out; pointer-events: none;}
+		#loaded{ display: none }
+		#loading{ padding: 20px 0; text-align: center }
+		.twitter-share{ display: inline-block; margin-right: 30px; }
+		.share{ margin-bottom: 1em; pointer-events: auto }
+		.min-share{ display: block; margin-top: 5px; }
+		@media (max-width: 700px) {
+			body{ font-size: 14px;}
+			#intro h1{ font-size: 24px; }
+			#intro h2{ font-size: 16px;}
+			#instructions{ display: none;}
+			#sizes{ margin: 10px 0 40px 0;}
+			#minIntro{ text-align: center; width: 100%; }
+		}
+	</style>
+	<link href="light_files/css.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">.dg ul{list-style:none;margin:0;padding:0;width:100%;clear:both}.dg.ac{position:fixed;top:0;left:0;right:0;height:0;z-index:0}.dg:not(.ac) .main{overflow:hidden}.dg.main{-webkit-transition:opacity 0.1s linear;-o-transition:opacity 0.1s linear;-moz-transition:opacity 0.1s linear;transition:opacity 0.1s linear}.dg.main.taller-than-window{overflow-y:auto}.dg.main.taller-than-window .close-button{opacity:1;margin-top:-1px;border-top:1px solid #2c2c2c}.dg.main ul.closed .close-button{opacity:1 !important}.dg.main:hover .close-button,.dg.main .close-button.drag{opacity:1}.dg.main .close-button{-webkit-transition:opacity 0.1s linear;-o-transition:opacity 0.1s linear;-moz-transition:opacity 0.1s linear;transition:opacity 0.1s linear;border:0;position:absolute;line-height:19px;height:20px;cursor:pointer;text-align:center;background-color:#000}.dg.main .close-button:hover{background-color:#111}.dg.a{float:right;margin-right:15px;overflow-x:hidden}.dg.a.has-save ul{margin-top:27px}.dg.a.has-save ul.closed{margin-top:0}.dg.a .save-row{position:fixed;top:0;z-index:1002}.dg li{-webkit-transition:height 0.1s ease-out;-o-transition:height 0.1s ease-out;-moz-transition:height 0.1s ease-out;transition:height 0.1s ease-out}.dg li:not(.folder){cursor:auto;height:27px;line-height:27px;overflow:hidden;padding:0 4px 0 5px}.dg li.folder{padding:0;border-left:4px solid rgba(0,0,0,0)}.dg li.title{cursor:pointer;margin-left:-4px}.dg .closed li:not(.title),.dg .closed ul li,.dg .closed ul li > *{height:0;overflow:hidden;border:0}.dg .cr{clear:both;padding-left:3px;height:27px}.dg .property-name{cursor:default;float:left;clear:left;width:40%;overflow:hidden;text-overflow:ellipsis}.dg .c{float:left;width:60%}.dg .c input[type=text]{border:0;margin-top:4px;padding:3px;width:100%;float:right}.dg .has-slider input[type=text]{width:30%;margin-left:0}.dg .slider{float:left;width:66%;margin-left:-5px;margin-right:0;height:19px;margin-top:4px}.dg .slider-fg{height:100%}.dg .c input[type=checkbox]{margin-top:9px}.dg .c select{margin-top:5px}.dg .cr.function,.dg .cr.function .property-name,.dg .cr.function *,.dg .cr.boolean,.dg .cr.boolean *{cursor:pointer}.dg .selector{display:none;position:absolute;margin-left:-9px;margin-top:23px;z-index:10}.dg .c:hover .selector,.dg .selector.drag{display:block}.dg li.save-row{padding:0}.dg li.save-row .button{display:inline-block;padding:0px 6px}.dg.dialogue{background-color:#222;width:460px;padding:15px;font-size:13px;line-height:15px}#dg-new-constructor{padding:10px;color:#222;font-family:Monaco, monospace;font-size:10px;border:0;resize:none;box-shadow:inset 1px 1px 1px #888;word-wrap:break-word;margin:12px 0;display:block;width:440px;overflow-y:scroll;height:100px;position:relative}#dg-local-explain{display:none;font-size:11px;line-height:17px;border-radius:3px;background-color:#333;padding:8px;margin-top:10px}#dg-local-explain code{font-size:10px}#dat-gui-save-locally{display:none}.dg{color:#eee;font:11px 'Lucida Grande', sans-serif;text-shadow:0 -1px 0 #111}.dg.main::-webkit-scrollbar{width:5px;background:#1a1a1a}.dg.main::-webkit-scrollbar-corner{height:0;display:none}.dg.main::-webkit-scrollbar-thumb{border-radius:5px;background:#676767}.dg li:not(.folder){background:#1a1a1a;border-bottom:1px solid #2c2c2c}.dg li.save-row{line-height:25px;background:#dad5cb;border:0}.dg li.save-row select{margin-left:5px;width:108px}.dg li.save-row .button{margin-left:5px;margin-top:1px;border-radius:2px;font-size:9px;line-height:7px;padding:4px 4px 5px 4px;background:#c5bdad;color:#fff;text-shadow:0 1px 0 #b0a58f;box-shadow:0 -1px 0 #b0a58f;cursor:pointer}.dg li.save-row .button.gears{background:#c5bdad url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAANCAYAAAB/9ZQ7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQJJREFUeNpiYKAU/P//PwGIC/ApCABiBSAW+I8AClAcgKxQ4T9hoMAEUrxx2QSGN6+egDX+/vWT4e7N82AMYoPAx/evwWoYoSYbACX2s7KxCxzcsezDh3evFoDEBYTEEqycggWAzA9AuUSQQgeYPa9fPv6/YWm/Acx5IPb7ty/fw+QZblw67vDs8R0YHyQhgObx+yAJkBqmG5dPPDh1aPOGR/eugW0G4vlIoTIfyFcA+QekhhHJhPdQxbiAIguMBTQZrPD7108M6roWYDFQiIAAv6Aow/1bFwXgis+f2LUAynwoIaNcz8XNx3Dl7MEJUDGQpx9gtQ8YCueB+D26OECAAQDadt7e46D42QAAAABJRU5ErkJggg==) 2px 1px no-repeat;height:7px;width:8px}.dg li.save-row .button:hover{background-color:#bab19e;box-shadow:0 -1px 0 #b0a58f}.dg li.folder{border-bottom:0}.dg li.title{padding-left:16px;background:#000 url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlI+hKgFxoCgAOw==) 6px 10px no-repeat;cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.2)}.dg .closed li.title{background-image:url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlGIWqMCbWAEAOw==)}.dg .cr.boolean{border-left:3px solid #806787}.dg .cr.function{border-left:3px solid #e61d5f}.dg .cr.number{border-left:3px solid #2fa1d6}.dg .cr.number input[type=text]{color:#2fa1d6}.dg .cr.string{border-left:3px solid #1ed36f}.dg .cr.string input[type=text]{color:#1ed36f}.dg .cr.function:hover,.dg .cr.boolean:hover{background:#111}.dg .c input[type=text]{background:#303030;outline:none}.dg .c input[type=text]:hover{background:#3c3c3c}.dg .c input[type=text]:focus{background:#494949;color:#fff}.dg .c .slider{background:#303030;cursor:ew-resize}.dg .c .slider-fg{background:#2fa1d6}.dg .c .slider:hover{background:#3c3c3c}.dg .c .slider:hover .slider-fg{background:#44abda}
+</style><script charset="utf-8" src="light_files/button.js"></script></head>
+<body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="container"><canvas width="1920" height="967" style="width: 1920px; height: 967px;"></canvas></div>
+
+	<div id="intro">
+		<h1>Polygon shredder</h1>
+		<h2>The polygon shredder that takes many cubes and turns them into confetti</h2>
+		
+		<div class="share">
+			<div class="twitter-share">
+				<iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="light_files/tweet_button.html" frameborder="0"></iframe>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+			
+			<script type="text/javascript" src="light_files/plusone.js" gapi_processed="true"></script>
+			<div style="position: absolute; width: 450px; left: -10000px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" id="I0_1571095131465" name="I0_1571095131465" src="light_files/fastbutton.html" data-gapiattached="true" width="100%" frameborder="0"></iframe></div><div class="g-plusone" data-size="medium" data-annotation="bubble" data-gapiscan="true" data-onload="true" data-gapistub="true"></div>
+			
+			<div class="fb-like" data-href="https://www.clicktorelease.com/code/polygon-shredder/" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+		</div>
+
+		<p>Jaume Sanchez · <a href="https://www.clicktorelease.com/" rel="external">clicktorelease</a> · <a href="https://twitter.com/thespite" rel="external">Twitter</a> · <a href="https://github.com/spite/polygon-shredder" rel="external">GitHub</a></p>
+		
+		<div id="loading" style="display: none;">Loading...</div>
+		<div id="loaded" style="display: block;">
+			<div id="instructions">
+				<ul>
+					<li><b>Move mouse</b> around, the particles will be generated following the mouse</li>
+					<li>Press <b>space to pause</b>, space again to resume</li>
+					<li><b>Click and drag</b> to rotate the camera, use scroll to zoom in and out</li>
+					<li>Play with the <b>controls</b> and let's see what you can find!</li>
+				</ul>
+				<ul class="controls">
+					<li><b>Factor:</b> speed at which the particles move</li>
+					<li><b>Evolution:</b> the variation over time of the particles flow</li>
+					<li><b>Rotation:</b> speed at which the particle field auto-rotates</li>
+					<li><b>Radius:</b> radius of a sphere that repels particles</li>
+					<li><b>Pulsate:</b> if enabled, the sphere pulsates, pushing in and out</li>
+					<li><b>ScaleX/Y/Z:</b> set the scale of each axis of the particles</li>
+					<li><b>Scale:</b> change the overall scale of the particles</li>
+				</ul>
+			</div>
+			<p id="sizes">Too many? Too litte?<br>Try <span id="size-options"><span><a href="#32">almost none</a></span><span><a href="#64">a few</a></span><span><a href="#128">some</a></span><span><a href="#256">regular</a></span><span><a href="#512">quite a few</a></span><span><a href="#1024">a lot</a></span><span><a href="#2048">INSANE</a></span></span></p>
+			<p id="closeBtn">Close this message</p>
+		</div>
+	</div>
+
+	<div id="minIntro" class="hidden">
+		<h1>Polygon shredder</h1>
+		<p>Jaume Sanchez · <a href="https://www.clicktorelease.com/" rel="external">clicktorelease</a> · <a href="https://twitter.com/thespite" rel="external">Twitter</a> · <a href="https://github.com/spite/polygon-shredder" rel="external">GitHub</a> <span class="min-share">
+			</span></p><div class="twitter-share">
+				<iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="light_files/tweet_button_002.html" frameborder="0"></iframe>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+			
+			<script type="text/javascript" src="light_files/plusone.js" gapi_processed="true"></script>
+			<div style="position: absolute; width: 450px; left: -10000px;" id="___plusone_1"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" id="I0_1571095131544" name="I0_1571095131544" src="light_files/fastbutton_002.html" data-gapiattached="true" width="100%" frameborder="0"></iframe></div><div class="g-plusone" data-size="medium" data-annotation="bubble" data-gapiscan="true" data-onload="true" data-gapistub="true"></div>
+			
+			<div class="fb-like" data-href="https://www.clicktorelease.com/code/polygon-shredder/" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+		
+		<p></p>
+	</div>
+
+	<div id="error" class="hidden">
+		<p>I'm sorry, no fallback for browsers with no working WebGL.</p>
+	</div>
+
+<script src="light_files/isMobile.js"></script>
+<script src="light_files/three.js"></script>
+<script src="light_files/OrbitControls.js"></script>
+<script src="light_files/Simulation.js"></script>
+<script src="light_files/dat.js"></script>
+<script src="light_files/Detector.js"></script>
+<script src="light_files/main-boxels.js"></script>
+
+<script id="texture_vertex_simulation_shader" type="x-shader/x-vertex">
+		
+	varying vec2 vUv;
+	varying vec3 vOffset;
+
+	uniform vec3 offset;
+	uniform mat4 inverseModelViewMatrix;
+
+	void main() {
+
+		vOffset = ( inverseModelViewMatrix * vec4( offset, 1. ) ).xyz;
+		vUv = vec2(uv.x, 1.0 - uv.y);
+		gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+	}
+
+</script>
+
+<script id="texture_fragment_simulation_shader" type="x-shader/x-fragment">
+
+//
+// Description : Array and textureless GLSL 2D/3D/4D simplex 
+//               noise functions.
+//      Author : Ian McEwan, Ashima Arts.
+//  Maintainer : ijm
+//     Lastmod : 20110822 (ijm)
+//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.
+//               Distributed under the MIT License. See LICENSE file.
+//               https://github.com/ashima/webgl-noise
+// 
+
+vec3 mod289(vec3 x) {
+	return x - floor(x * (1.0 / 289.0)) * 289.0;
+}
+
+vec4 mod289(vec4 x) {
+	return x - floor(x * (1.0 / 289.0)) * 289.0;
+}
+
+vec4 permute(vec4 x) {
+	return mod289(((x*34.0)+1.0)*x);
+}
+
+vec4 taylorInvSqrt(vec4 r){
+	return 1.79284291400159 - 0.85373472095314 * r;
+}
+
+float snoise(vec3 v) { 
+
+	const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
+	const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+
+	// First corner
+	vec3 i  = floor(v + dot(v, C.yyy) );
+	vec3 x0 =   v - i + dot(i, C.xxx) ;
+
+	// Other corners
+	vec3 g = step(x0.yzx, x0.xyz);
+	vec3 l = 1.0 - g;
+	vec3 i1 = min( g.xyz, l.zxy );
+	vec3 i2 = max( g.xyz, l.zxy );
+
+	//   x0 = x0 - 0.0 + 0.0 * C.xxx;
+	//   x1 = x0 - i1  + 1.0 * C.xxx;
+	//   x2 = x0 - i2  + 2.0 * C.xxx;
+	//   x3 = x0 - 1.0 + 3.0 * C.xxx;
+	vec3 x1 = x0 - i1 + C.xxx;
+	vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y
+	vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y
+
+	// Permutations
+	i = mod289(i); 
+	vec4 p = permute( permute( permute( 
+		  i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
+		+ i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
+		+ i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
+
+	// Gradients: 7x7 points over a square, mapped onto an octahedron.
+	// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)
+	float n_ = 0.142857142857; // 1.0/7.0
+	vec3  ns = n_ * D.wyz - D.xzx;
+
+	vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)
+
+	vec4 x_ = floor(j * ns.z);
+	vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)
+
+	vec4 x = x_ *ns.x + ns.yyyy;
+	vec4 y = y_ *ns.x + ns.yyyy;
+	vec4 h = 1.0 - abs(x) - abs(y);
+
+	vec4 b0 = vec4( x.xy, y.xy );
+	vec4 b1 = vec4( x.zw, y.zw );
+
+	//vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;
+	//vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;
+	vec4 s0 = floor(b0)*2.0 + 1.0;
+	vec4 s1 = floor(b1)*2.0 + 1.0;
+	vec4 sh = -step(h, vec4(0.0));
+
+	vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
+	vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
+
+	vec3 p0 = vec3(a0.xy,h.x);
+	vec3 p1 = vec3(a0.zw,h.y);
+	vec3 p2 = vec3(a1.xy,h.z);
+	vec3 p3 = vec3(a1.zw,h.w);
+
+	//Normalise gradients
+	vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
+	p0 *= norm.x;
+	p1 *= norm.y;
+	p2 *= norm.z;
+	p3 *= norm.w;
+
+	// Mix final noise value
+	vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+	m = m * m;
+	return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3) ) );
+
+}
+
+vec3 snoiseVec3( vec3 x ){
+
+	float s  = snoise(vec3( x ));
+	float s1 = snoise(vec3( x.y - 19.1 , x.z + 33.4 , x.x + 47.2 ));
+	float s2 = snoise(vec3( x.z + 74.2 , x.x - 124.5 , x.y + 99.4 ));
+	vec3 c = vec3( s , s1 , s2 );
+	return c;
+
+}
+
+vec3 curlNoise( vec3 p ){
+ 
+	const float e = .1;
+	vec3 dx = vec3( e   , 0.0 , 0.0 );
+	vec3 dy = vec3( 0.0 , e   , 0.0 );
+	vec3 dz = vec3( 0.0 , 0.0 , e   );
+
+	vec3 p_x0 = snoiseVec3( p - dx );
+	vec3 p_x1 = snoiseVec3( p + dx );
+	vec3 p_y0 = snoiseVec3( p - dy );
+	vec3 p_y1 = snoiseVec3( p + dy );
+	vec3 p_z0 = snoiseVec3( p - dz );
+	vec3 p_z1 = snoiseVec3( p + dz );
+
+	float x = p_y1.z - p_y0.z - p_z1.y + p_z0.y;
+	float y = p_z1.x - p_z0.x - p_x1.z + p_x0.z;
+	float z = p_x1.y - p_x0.y - p_y1.x + p_y0.x;
+
+	const float divisor = 1.0 / ( 2.0 * e );
+	return normalize( vec3( x , y , z ) * divisor );
+
+}
+
+vec3 curlNoise2( vec3 p ) {
+
+	const float e = .1;
+
+	vec3 xNoisePotentialDerivatives = snoiseVec3( p );
+	vec3 yNoisePotentialDerivatives = snoiseVec3( p + e * vec3( 3., -3.,  1. ) );
+	vec3 zNoisePotentialDerivatives = snoiseVec3( p + e * vec3( 2.,  4., -3. ) );
+
+	vec3 noiseVelocity = vec3(
+		zNoisePotentialDerivatives.y - yNoisePotentialDerivatives.z,
+		xNoisePotentialDerivatives.z - zNoisePotentialDerivatives.x,
+		yNoisePotentialDerivatives.x - xNoisePotentialDerivatives.y
+	);
+
+	return normalize( noiseVelocity );
+
+}
+
+vec4 snoiseD(vec3 v) { //returns vec4(value, dx, dy, dz)
+  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
+  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
+ 
+  vec3 i  = floor(v + dot(v, C.yyy) );
+  vec3 x0 =   v - i + dot(i, C.xxx) ;
+ 
+  vec3 g = step(x0.yzx, x0.xyz);
+  vec3 l = 1.0 - g;
+  vec3 i1 = min( g.xyz, l.zxy );
+  vec3 i2 = max( g.xyz, l.zxy );
+ 
+  vec3 x1 = x0 - i1 + C.xxx;
+  vec3 x2 = x0 - i2 + C.yyy;
+  vec3 x3 = x0 - D.yyy;
+ 
+  i = mod289(i);
+  vec4 p = permute( permute( permute(
+             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
+           + i.y + vec4(0.0, i1.y, i2.y, 1.0 ))
+           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
+ 
+  float n_ = 0.142857142857; // 1.0/7.0
+  vec3  ns = n_ * D.wyz - D.xzx;
+ 
+  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+ 
+  vec4 x_ = floor(j * ns.z);
+  vec4 y_ = floor(j - 7.0 * x_ );
+ 
+  vec4 x = x_ *ns.x + ns.yyyy;
+  vec4 y = y_ *ns.x + ns.yyyy;
+  vec4 h = 1.0 - abs(x) - abs(y);
+ 
+  vec4 b0 = vec4( x.xy, y.xy );
+  vec4 b1 = vec4( x.zw, y.zw );
+ 
+  vec4 s0 = floor(b0)*2.0 + 1.0;
+  vec4 s1 = floor(b1)*2.0 + 1.0;
+  vec4 sh = -step(h, vec4(0.0));
+ 
+  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
+  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
+ 
+  vec3 p0 = vec3(a0.xy,h.x);
+  vec3 p1 = vec3(a0.zw,h.y);
+  vec3 p2 = vec3(a1.xy,h.z);
+  vec3 p3 = vec3(a1.zw,h.w);
+ 
+  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
+  p0 *= norm.x;
+  p1 *= norm.y;
+  p2 *= norm.z;
+  p3 *= norm.w;
+ 
+  vec4 values = vec4( dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3) ); //value of contributions from each corner (extrapolate the gradient)
+ 
+  vec4 m = max(0.5 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0); //kernel function from each corner
+ 
+  vec4 m2 = m * m;
+  vec4 m3 = m * m * m;
+ 
+  vec4 temp = -6.0 * m2 * values;
+  float dx = temp[0] * x0.x + temp[1] * x1.x + temp[2] * x2.x + temp[3] * x3.x + m3[0] * p0.x + m3[1] * p1.x + m3[2] * p2.x + m3[3] * p3.x;
+  float dy = temp[0] * x0.y + temp[1] * x1.y + temp[2] * x2.y + temp[3] * x3.y + m3[0] * p0.y + m3[1] * p1.y + m3[2] * p2.y + m3[3] * p3.y;
+  float dz = temp[0] * x0.z + temp[1] * x1.z + temp[2] * x2.z + temp[3] * x3.z + m3[0] * p0.z + m3[1] * p1.z + m3[2] * p2.z + m3[3] * p3.z;
+ 
+  return vec4(dot(m3, values), dx, dy, dz) * 42.0;
+}
+
+
+vec3 curlNoise3 (vec3 p) {
+
+    vec3 xNoisePotentialDerivatives = snoiseD( p ).yzw; //yzw are the xyz derivatives
+    vec3 yNoisePotentialDerivatives = snoiseD(vec3( p.y - 19.1 , p.z + 33.4 , p.x + 47.2 )).zwy;
+    vec3 zNoisePotentialDerivatives = snoiseD(vec3( p.z + 74.2 , p.x - 124.5 , p.y + 99.4 )).wyz;
+    vec3 noiseVelocity = vec3(
+        zNoisePotentialDerivatives.y - yNoisePotentialDerivatives.z,
+        xNoisePotentialDerivatives.z - zNoisePotentialDerivatives.x,
+        yNoisePotentialDerivatives.x - xNoisePotentialDerivatives.y
+    );
+	
+	const float e = .1;
+	const float divisor = 1.0 / ( 2.0 * e );
+	return normalize( noiseVelocity * divisor );
+
+}
+
+
+varying vec2 vUv;
+varying vec3 vOffset;
+
+uniform float active;
+uniform sampler2D tPositions;
+uniform sampler2D oPositions;
+uniform float width;
+uniform float height;
+uniform vec3 offset;
+
+uniform float timer;
+uniform float delta;
+uniform float speed;
+uniform float reset;
+uniform float genScale;
+uniform float factor;
+uniform float evolution;
+uniform float radius;
+
+mat4 rotationMatrix(vec3 axis, float angle) {
+
+    axis = normalize(axis);
+    float s = sin(angle);
+    float c = cos(angle);
+    float oc = 1.0 - c;
+    
+    return mat4(oc * axis.x * axis.x + c,           oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s,  0.0,
+                oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,  0.0,
+                oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,           0.0,
+                0.0,                                0.0,                                0.0,                                1.0);
+}
+
+float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
+
+void main() {
+
+	vec4 c = texture2D( tPositions, vUv );
+	vec3 pos = c.xyz;
+	float life = c.a;
+
+	float s = vUv.x * life / 100.;
+	float speedInc = 1.;
+	if( s > .95 ) speedInc = .75;
+	else if( s > .9 ) speedInc = .85;
+	else speedInc = 1.;
+
+	//speedInc *= 2. * ( 1. - ( life / 100. ) );
+	//speedInc *= .25;
+
+	vec3 v = factor * speedInc * delta * speed * ( curlNoise( .2 * pos + factor * evolution * .1 * timer ) );
+	//vec3 v = speedInc * delta * speed * ( snoiseVec3( .2 * pos + 5. * timer ) );
+	pos += v;
+	life -= factor * 1.;
+	
+	if( length( pos ) < radius ) {
+		pos = normalize( pos ) * radius;
+	}
+
+	if( life <= 0. || reset == 1. ) {
+
+		pos = ( rotationMatrix( vec3( 1., 0., 0. ), timer ) * texture2D( oPositions, vUv ) ).xyz + vOffset;
+		//pos = genScale * texture2D( oPositions, vUv ).xyz + vOffset;
+		life = 100.;
+
+	}
+
+	gl_FragColor = vec4( pos, life );
+
+}
+
+
+</script>
+
+<script id="vs-particles" type="x-shader/x-vertex">
+
+precision highp float;
+
+attribute vec3 position;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+uniform mat3 normalMatrix;
+uniform mat4 modelMatrix;
+uniform mat4 viewMatrix;
+
+uniform vec3 cameraPosition;
+
+uniform sampler2D map;
+uniform sampler2D prevMap;
+
+uniform vec3 boxVertices[ 36 ];
+uniform vec3 boxNormals[ 3 ];
+
+uniform float width;
+uniform float height;
+
+uniform float timer;
+uniform vec3 boxScale;
+uniform float meshScale;
+
+varying vec3 vPosition;
+varying vec4 vColor;
+
+varying vec4 vShadowCoord;
+uniform mat4 shadowV;
+uniform mat4 shadowP;
+uniform vec3 lightPosition;
+
+varying float vSequence;
+varying vec3 vLightPosition;
+
+uniform sampler2D diffuse;
+
+const mat4 biasMatrix = mat4(
+	0.5, 0.0, 0.0, 0.0, 
+	0.0, 0.5, 0.0, 0.0, 
+	0.0, 0.0, 0.5, 0.0, 
+	0.5, 0.5, 0.5, 1.0
+);
+
+mat4 rotationMatrix(vec3 axis, float angle) {
+
+	axis = normalize(axis);
+	float s = sin(angle);
+	float c = cos(angle);
+	float oc = 1.0 - c;
+
+	return mat4(oc * axis.x * axis.x + c,           oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s,  0.0,
+				oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,  0.0,
+				oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,           0.0,
+				0.0,                                0.0,                                0.0,                                1.0);
+}
+
+float ramp( float x ) {
+	return 1. - 1. - pow( 1. - x, 4. );
+}
+
+float parabola( float x, float k ) {
+	return pow( 4. * x * ( 1. - x ), k );
+}
+
+float random(vec4 seed4){
+	//return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+	float dot_product = dot(seed4, vec4(12.9898,78.233,45.164,94.673));
+	return fract(sin(dot_product) * 43758.5453);
+}
+
+mat3 calcLookAtMatrix(vec3 origin, vec3 target, float roll) {
+	vec3 rr = vec3(sin(roll), cos(roll), 0.0);
+	vec3 ww = normalize(target - origin);
+	vec3 uu = normalize(cross(ww, rr));
+	vec3 vv = normalize(cross(uu, ww));
+
+	return mat3(uu, vv, ww);
+}
+
+void main() {
+
+	vec2 dimensions = vec2( width, height );
+
+	float px = position.y;
+	float vi = position.z;
+	float x = mod( px, dimensions.x );
+	float y = mod( floor( px / dimensions.x ), dimensions.y );
+	vec2 uv = vec2( x, y ) / dimensions;
+
+	vec4 cubePosition = texture2D( map, uv );
+	vec4 prevPosition = texture2D( prevMap, uv );
+	float alpha = cubePosition.a / 100.;
+	float scale = .025 * parabola( 1. - alpha, 1. );
+	vec3 faceNormal = boxNormals[ int( vi / 6. ) ];
+	mat4 localRotation = mat4( calcLookAtMatrix( cubePosition.xyz, prevPosition.xyz, 0. ) );
+
+	vec4 rotatedNormal = localRotation * vec4( faceNormal, 1. );
+	vec3 visPosition = ( modelMatrix * ( cubePosition + rotatedNormal * scale ) ).xyz;
+	float d = dot( normalize( visPosition - cameraPosition ), normalize( ( modelMatrix * rotatedNormal ).xyz ) );
+	vec3 boxVertex = boxVertices[ int( vi + ( 1. - step( 0., d ) ) * 18. ) ];
+	vec3 modifiedVertex = ( ( localRotation * vec4( boxVertex * scale * boxScale * meshScale, 1. ) ).xyz );
+	vec3 modifiedPosition = cubePosition.xyz + modifiedVertex;
+
+	gl_Position = projectionMatrix * modelViewMatrix * vec4( modifiedPosition, 1.0 );
+	vPosition = modifiedPosition;
+
+	vShadowCoord = biasMatrix * shadowP * shadowV * modelMatrix * vec4( modifiedPosition, 1. );
+
+	vColor = texture2D( diffuse, uv );
+	vLightPosition = lightPosition;
+
+}
+
+</script>
+
+<script id="fs-particles" type="x-shader/x-fragment">
+#extension GL_OES_standard_derivatives : enable
+
+precision highp float;
+
+uniform float spread;
+
+varying vec3 vPosition;
+varying vec4 vColor;
+
+varying vec4 vShadowCoord;
+uniform sampler2D depthTexture;
+uniform sampler2D projector;
+varying vec3 vLightPosition;
+uniform vec2 resolution;
+uniform vec3 cameraPosition;
+
+varying float vSequence;
+
+float bias;
+
+float unpackDepth( const in vec4 rgba_depth ) {
+
+	const vec4 bit_shift = vec4(1.0/(256.0*256.0*256.0), 1.0/(256.0*256.0), 1.0/256.0, 1.0);
+    return dot(rgba_depth, bit_shift);
+
+}
+
+float random(vec4 seed4){
+    //return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+    float dot_product = dot(seed4, vec4(12.9898,78.233,45.164,94.673));
+	return fract(sin(dot_product) * 43758.5453);
+}
+
+float sampleVisibility( vec3 coord ) {
+	return step( coord.z, unpackDepth( texture2D( depthTexture, coord.xy + 0. * ( .5 - random( vec4( coord, bias ) ) ) / 2048. ) ) + bias );
+}
+
+mat2 rotationMatrix( float a ) {
+	return mat2( cos( a ), sin( a ),
+ 			    -sin( a ), cos( a ) );
+}
+
+const float PI = 3.14159265358979323846264;
+
+void main() {
+
+/*	vec3 fdx = vec3(dFdx(vPosition.x),dFdx(vPosition.y),dFdx(vPosition.z));
+	vec3 fdy = vec3(dFdy(vPosition.x),dFdy(vPosition.y),dFdy(vPosition.z));
+	vec3 n = normalize(cross(fdx,fdy));*/
+
+	vec3 fdx = dFdx( vPosition );
+	vec3 fdy = dFdy( vPosition );
+	vec3 n = normalize(cross(fdx, fdy));
+
+	vec4 base = vec4( 1. );
+
+	vec3 L = normalize( vLightPosition - vPosition );  
+	vec3 E = normalize( cameraPosition - vPosition );
+
+	float diffuse = max( 0., dot( L, n ) );
+
+	float theta = clamp( -diffuse, 0., 1. );
+    bias = 0.005 * tan( acos( theta ) );
+    bias = clamp( bias, 0., 0.01 );
+	
+	float shadow = 0.;
+	vec3 shadowCoord = vShadowCoord.xyz / vShadowCoord.w;
+
+	float step = spread;
+	vec2 inc = vec2( step ) / resolution;
+	
+	shadow += sampleVisibility( shadowCoord + vec3(     0., -inc.y, 0. ) );
+	shadow += sampleVisibility( shadowCoord + vec3( -inc.x,     0., 0. ) );
+	shadow += sampleVisibility( shadowCoord + vec3(     0.,     0., 0. ) );
+	shadow += sampleVisibility( shadowCoord + vec3(  inc.x,     0., 0. ) );
+	shadow += sampleVisibility( shadowCoord + vec3(     0.,  inc.y, 0. ) );
+	shadow /= 5.;
+
+	vec4 mask = texture2D( projector, vShadowCoord.xy );
+
+	float shininess = 200.;
+	vec3 halfVector = normalize(E + L );
+	float specular = dot(n, halfVector);
+	specular = max(0.0, specular);
+	specular = pow(specular, shininess);
+
+	float ambient = .2;
+	float o = diffuse * shadow * mask.r;
+	vec3 color = mix( vColor.rgb, vec3( 1. ), .8 * clamp( -n.y, 0., 1. ) );
+	vec3 diffuseColor = color * mix( vec3( o ), vec3( 1. ), ambient );
+	vec3 specularColor = vec3( 1. );
+
+	base.rgb = mix( diffuseColor, specularColor, specular * o );
+
+	gl_FragColor = base;
+
+}
+
+</script>
+
+<script id="fs-particles-shadow" type="x-shader/x-fragment">
+
+precision highp float;
+
+vec4 packDepth(const in float depth) {
+	const vec4 bit_shift = vec4(256.0*256.0*256.0, 256.0*256.0, 256.0, 1.0);
+	const vec4 bit_mask  = vec4(0.0, 1.0/256.0, 1.0/256.0, 1.0/256.0);
+	vec4 res = mod(depth*bit_shift*vec4(255), vec4(256))/vec4(255);
+	res -= res.xxyz * bit_mask;
+	return res;
+}
+
+void main() {
+
+	gl_FragColor = packDepth( gl_FragCoord.z );
+
+}
+
+</script>
+
+<script>
+
+document.getElementById( 'closeBtn' ).addEventListener( 'click', function() {
+	document.getElementById( 'intro' ).classList.add( 'hidden' );
+	document.getElementById( 'minIntro' ).classList.remove( 'hidden' );
+} );
+
+var links = document.querySelectorAll( 'a[rel=external]' );
+for( var j = 0; j < links.length; j++ ) {
+	var a = links[ j ];
+	a.addEventListener( 'click', function( e ) {
+		window.open( this.href, '_blank' );
+		e.preventDefault();
+	}, false );
+}
+
+window.addEventListener( 'hashchange', function( e ) {
+	window.location = e.newURL;
+	window.location.reload()
+} );
+
+</script>
+
+
+<iframe name="oauth2relay706155971" id="oauth2relay706155971" src="light_files/postmessageRelay.html" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe><iframe scrolling="no" allowtransparency="true" src="light_files/widget_iframe.html" title="Twitter settings iframe" style="display: none;" frameborder="0"></iframe><div class="dg ac"><div class="dg main a" style="user-select: none; width: 245px;"><div style="width: 6px; margin-left: -3px; height: 252px; cursor: ew-resize; position: absolute;"></div><ul style="height: auto;"><li class="cr number has-slider"><div><span class="property-name">factor</span><div class="c"><div><input type="text" value="0.5"></div><div class="slider"><div class="slider-fg" style="width: 44.4444%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">evolution</span><div class="c"><div><input type="text" value="0.5"></div><div class="slider"><div class="slider-fg" style="width: 50%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">rotation</span><div class="c"><div><input type="text" value="0.5"></div><div class="slider"><div class="slider-fg" style="width: 50%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">radius</span><div class="c"><div><input type="text" value="2"></div><div class="slider"><div class="slider-fg" style="width: 50%;"></div></div></div></div></li><li class="cr boolean"><div><span class="property-name">pulsate</span><div class="c"><input type="checkbox"></div></div></li><li class="cr number has-slider"><div><span class="property-name">scaleX</span><div class="c"><div><input type="text" value="0.1"></div><div class="slider"><div class="slider-fg" style="width: 0%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">scaleY</span><div class="c"><div><input type="text" value="1"></div><div class="slider"><div class="slider-fg" style="width: 9.09091%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">scaleZ</span><div class="c"><div><input type="text" value="5"></div><div class="slider"><div class="slider-fg" style="width: 49.495%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">scale</span><div class="c"><div><input type="text" value="1"></div><div class="slider"><div class="slider-fg" style="width: 47.3684%;"></div></div></div></div></li></ul><div class="close-button" style="width: 245px;">Close Controls</div></div></div><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>
