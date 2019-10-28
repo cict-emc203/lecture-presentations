@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Creative Programming & WebGL</title>
+
+	<meta name="description" content="Presentation made with reveal.js">
+	<meta name="author" content="Mark Joseph J. Solidarios">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="left" data-background="assets/bg0.jpg">
+				<h2>Intermediate WebGL</h2>
+				<p>Creative Programming (p5.js)</p>
+				<img src="assets/profile.jpg" class="profile" /><small class="profile-text">mjsolidarios@wvsu.edu.ph |
+					https://github.com/mjsolidarios</small>
+			</section>
+			<section data-background="assets/bg0.jpg" class="left">
+				<img src="assets/nav.svg" alt="" class="icon-md" />
+				<p><small>
+						Use the navigation buttons or the arrow keys to proceed to the remaining slides.
+					</small></p>
+				<h2>F</h2>
+				<p>
+					<small>
+						You can also press
+						<span class="highlight">&gt;</span>
+						<span class="highlight">&gt;</span>F
+						<span class="highlight">&lt;</span>
+						<span class="highlight">&lt;</span> on your keyboard to show your presentation in fullscreen
+						mode.
+					</small>
+				</p>
+				<img src="assets/explore.svg" class="icon-md" alt="" />
+				<p>
+					<small>
+						This presentation is best explored with up-to-date web browsers.
+					</small>
+				</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<img style="height: 200px; width: auto;" src="assets/processing.jpg" alt="" srcset="">
+				<h3>Processing (p5.js)</h3>
+				<p class="fragment">
+					programming tool for Visual Designers and Artists
+				</p>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>Setup</h3>
+				<p>-also comes with a cheat sheet</p>
+				<pre><code>
+function setup() {
+
+}
+
+function draw() {
+	
+}					
+				</code></pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<section>
+					<h3>Our first sketch</h3>
+					<pre><code>
+function setup() {
+
+}
+
+function draw() {
+	ellipse(50, 50, 80, 80);
+}				
+					</code></pre>
+				</section>
+				<section>
+					<pre><code>
+function setup() {
+	createCanvas(640, 480);
+}
+
+function draw() {
+if (mouseIsPressed) {
+	fill(0);
+} else {
+	fill(255);
+}
+	ellipse(mouseX, mouseY, 80, 80);
+}				
+					</code></pre>
+				</section>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<p>A circle, square, triangle, and a flower.</p>
+				<pre><code>
+function setup() {
+	// Create the canvas
+	createCanvas(720, 400);
+	background(200);
+	
+	// Set colors
+	fill(204, 101, 192, 127);
+	stroke(127, 63, 120);
+	
+	// A rectangle
+	rect(40, 120, 120, 40);
+	// An ellipse
+	ellipse(240, 240, 80, 80);
+	// A triangle
+	triangle(300, 100, 320, 100, 310, 80);
+	
+	// A design for a simple flower
+	translate(580, 200);
+	noStroke();
+	for (let i = 0; i < 10; i ++) {
+		ellipse(0, 30, 20, 80);
+		rotate(PI/5);
+	}
+	}				
+			</code></pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<p>Interactive Random Colors</p>
+				<pre><code>
+let r, g, b;
+
+function setup() {
+	createCanvas(720, 400);
+	// Pick colors randomly
+	r = random(255);
+	g = random(255);
+	b = random(255);
+}
+
+function draw() {
+	background(127);
+	// Draw a circle
+	strokeWeight(2);
+	stroke(r, g, b);
+	fill(r, g, b, 127);
+	ellipse(360, 200, 200, 200);
+}
+
+// When the user clicks the mouse
+function mousePressed() {
+	// Check if mouse is inside the circle
+	let d = dist(mouseX, mouseY, 360, 200);
+	if (d < 100) {
+	// Pick new random color values
+	r = random(255);
+	g = random(255);
+	b = random(255);
+	}
+}				
+			</code></pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<p>Animation</p>
+				<pre><code>
+let x, y;
+
+function setup() {
+	createCanvas(720, 400);
+	// Starts in the middle
+	x = width / 2;
+	y = height;
+}
+
+function draw() {
+	background(200);
+	
+	// Draw a circle
+	stroke(50);
+	fill(100);
+	ellipse(x, y, 24, 24);
+	
+	// Jiggling randomly on the horizontal axis
+	x = x + random(-1, 1);
+	// Moving up at a constant speed
+	y = y - 1;
+	
+	// Reset to the bottom
+	if (y < 0) {
+	y = height;
+	}
+}				
+			</code></pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<p>3D WebGL</p>
+				<pre><code>
+function setup() {
+createCanvas(710, 400, WEBGL);
+}
+
+function draw() {
+background(250);
+
+translate(-240, -100, 0);
+normalMaterial();
+push();
+rotateZ(frameCount * 0.01);
+rotateX(frameCount * 0.01);
+rotateY(frameCount * 0.01);
+plane(70);
+pop();
+
+translate(240, 0, 0);
+push();
+rotateZ(frameCount * 0.01);
+rotateX(frameCount * 0.01);
+rotateY(frameCount * 0.01);
+box(70, 70, 70);
+pop();
+
+translate(240, 0, 0);
+push();
+rotateZ(frameCount * 0.01);
+rotateX(frameCount * 0.01);
+rotateY(frameCount * 0.01);
+cylinder(70, 70);
+pop();
+
+translate(-240 * 2, 200, 0);
+push();
+rotateZ(frameCount * 0.01);
+rotateX(frameCount * 0.01);
+rotateY(frameCount * 0.01);
+cone(70, 70);
+pop();
+
+translate(240, 0, 0);
+push();
+rotateZ(frameCount * 0.01);
+rotateX(frameCount * 0.01);
+rotateY(frameCount * 0.01);
+torus(70, 20);
+pop();
+
+translate(240, 0, 0);
+push();
+rotateZ(frameCount * 0.01);
+rotateX(frameCount * 0.01);
+rotateY(frameCount * 0.01);
+sphere(70);
+pop();
+}				
+			</code></pre>
+			</section>
+			<section class="left" data-background="assets/bg0.jpg">
+				<h3>
+					Task:
+				</h3>
+				<p>Using p5.js, create a flower with random petal colors. Be creative.</p>
+			</section>
+			<section data-background="assets/bg0.jpg">
+				<p>
+					Thank you!
+				</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
